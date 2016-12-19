@@ -127,7 +127,7 @@ void RooInverseGaussian::generateEvent(Int_t code)
             }
         }
     } else {
-        cout << "error in RooInverseGaussian generateEvent"<< endl;
+        std::cout << "error in RooInverseGaussian generateEvent"<< std::endl;
     }
     return;
 }
