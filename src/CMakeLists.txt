@@ -9,11 +9,22 @@ if (ROOT_FOUND)
 endif()
 
 if (CMAKE_COMPILER_IS_GNUCXX)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 else()
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
-ROOT_GENERATE_DICTIONARY( RooMisID_dict RooMomentumFractionPdf.h RooMisIDGaussian.h RooPowerLawApproxVar.h RooInverseGaussian.h )
-add_library( RooMisID SHARED RooMomentumFractionPdf.cxx RooMisIDGaussian.cxx RooPowerLawApproxVar.cxx RooInverseGaussian.cxx RooMisID_dict.cxx )
+ROOT_GENERATE_DICTIONARY( RooMisID_dict 
+    RooMomentumFractionPdf.h 
+    RooMisIDGaussian.h 
+    RooPowerLawApproxVar.h 
+    RooInverseGaussian.h 
+    RooMisIDBkg.h )
+add_library( RooMisID SHARED 
+    RooMomentumFractionPdf.cxx 
+    RooMisIDGaussian.cxx 
+    RooPowerLawApproxVar.cxx 
+    RooInverseGaussian.cxx 
+    RooMisIDBkg.cxx 
+    RooMisID_dict.cxx )
 target_link_libraries( RooMisID ${ROOT_LIBRARIES} RooFitCore )

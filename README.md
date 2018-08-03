@@ -7,6 +7,9 @@ A RooFit package for fitting misidentified backgrounds
     decay with one particle misidentified, based on a gaussian mass resolution where the mean depedends on the kinematical variable called "momentum fraction"
   * __RooMomentumFractionPdf__  
     Class for PDF for the momentum fraction, in its core a sum of exponentials with a 3rd order spline (polynomial) at its start (low x). 
+  * __RooMisIDBkg__
+    Class for PDF for invariant mass for a decay with one particle misidentified, without resolution.
+    Suggestion is to use it with your own resolution pdf and apply a FFT convolution (RooFFTConvPdf).
   * __RooInverseGaussian__  
     Class for an inverse Gaussian PDF
   * __RooPowerLawApproxVar__  
